@@ -1,15 +1,16 @@
 pipeline {
-    agent docker { image 'python:3.8-11'} 
+    agent none 
     stages {
-        stage('build') {
-            steps {
-                sh 'pip install -r api/requirements.txt'
+        stage('Build') { 
+            agent {
+                docker {
+                    image 'python:3.8-slim-buster' 
+                }
             }
-        stage('test') {
             steps {
-                sh 'python test.py'
+                sh 'python tests/test.py' 
             }
-        }
         }
     }
 }
+
