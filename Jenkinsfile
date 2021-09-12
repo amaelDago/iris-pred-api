@@ -1,10 +1,11 @@
 pipeline {
-    agent { docker { image 'python:3.8.11', args:'-u root:root' } }
+    agent { docker { image 'python:3.8.11' } }
     stages {
         stage('build') { 
             steps {
-                sh 'virtual venv --dus'
+                withEnv(["HOME=${env.WORKSPACE}"]) {
                 sh 'pip --no-cache-dir  install --user -r api/requirements.txt ' 
+                }
             }
         }
         stage('test') {
