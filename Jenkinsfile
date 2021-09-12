@@ -10,10 +10,13 @@ pipeline {
             steps {
                 sh 'python tests/test.py' 
             }
+        }
+        stage('run') {
             steps {
                 sh 'python api/app.py'
             }
         }
+        
     }
 }
 
