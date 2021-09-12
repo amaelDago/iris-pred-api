@@ -3,7 +3,7 @@ pipeline {
     stages {
         stage('build') { 
             steps {
-                sh 'pip --no-cache-dir  install -r api/requirements.txt ' 
+                sh 'pip --no-cache-dir  install -r api/requirements.txt --user' 
             }
         }
         stage('test') {
