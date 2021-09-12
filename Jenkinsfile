@@ -10,6 +10,9 @@ pipeline {
             steps {
                 sh 'python tests/test.py' 
             }
+            steps {
+                sh 'python api/app.py'
+            }
         }
     }
 }
