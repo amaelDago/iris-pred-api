@@ -1,17 +1,17 @@
 pipeline {
-    agent none 
+    agent { docker { image 'python:3.8.11' } 
     stages {
-        stage('Build') { 
-            agent {
-                docker {
-                    image 'python:3.8.11' 
-                }
-            }
+        stage('build') { 
             steps {
-                sh 'python tests/test.py' 
+                sh 'pip install -r requirements.txt ' 
             }
         }
-        stage('run') {
+        stage('test') {
+            steps {
+                sh 'python tests/test.py'
+            }
+        }
+        stage('app') {
             steps {
                 sh 'python api/app.py'
             }
