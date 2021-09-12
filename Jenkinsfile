@@ -4,7 +4,7 @@ pipeline {
         stage('build') { 
             steps {
                 sh 'virtualvenv venv --distribute'
-                sh 'source venv/bin/activate'
+                sh '. venv/bin/activate'
                 sh 'pip --no-cache-dir  install --user -r api/requirements.txt ' 
             }
         }
