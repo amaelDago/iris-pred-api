@@ -1,5 +1,5 @@
 pipeline {
-    agent none
+    agent none 
     stages {
         stage('build') { 
             agent {
@@ -8,9 +8,9 @@ pipeline {
                 }
             }
             steps {
-                sh 'python3 venv -venv'
+                sh 'python3 -m venv venv'
                 sh '. venv/bin/activate'
-                sh 'sudo -H pip  install -r api/requirements.txt '
+                sh 'sudo -H pip install -r api/requirements.txt '
             }
         }
         stage('test') {
