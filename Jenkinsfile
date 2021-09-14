@@ -8,7 +8,7 @@ pipeline {
                 }
             }
             steps {
-                sh 'virtualenv venv --distribute'
+                sh 'python3 venv -venv'
                 sh '. venv/bin/activate'
                 sh 'sudo -H pip  install -r api/requirements.txt '
             }
