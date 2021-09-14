@@ -8,9 +8,7 @@ pipeline {
                 }
             }
             steps {
-                sh 'python3 -m venv venv'
-                sh '. venv/bin/activate'
-                sh 'pip install --user -r api/requirements.txt '
+                sh "./build.sh"
             }
         }
         stage('test') {
