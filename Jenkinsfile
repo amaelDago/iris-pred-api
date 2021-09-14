@@ -8,6 +8,7 @@ pipeline {
                 }
             }
             steps {
+                sh "ls"
                 sh 'python -m venv venv'
                 sh '. venv/bin/activate'
                 sh 'pip  install -r api/requirements.txt ' 
