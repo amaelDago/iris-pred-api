@@ -14,7 +14,7 @@ pipeline {
                 sh '. venv/bin/activate'
                 sh 'pip  install -r api/requirements.txt ' 
                 sh 'python tests/test.py'
-                sh 'python app.py'
+                sh 'python api/app.py'
             }
         }
         
