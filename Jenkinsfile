@@ -9,8 +9,8 @@ pipeline {
                 }
             }
             steps {
-                sh "cp ../model ."
                 sh 'ls'
+                sh 'ls api/'
                 sh 'python -m venv venv'
                 sh '. venv/bin/activate'
                 sh 'pip  install -r api/requirements.txt ' 
