@@ -9,7 +9,9 @@ pipeline {
             }
             steps {
                 sh 'python tests/test.py'
-                sh "pip install --user -r api/requirements.txt"
+                sh 'virtualvenv venv --distribute'
+                sh '. venv/bin/activate'
+                sh 'sudo -H pip  install -r api/requirements.txt ' 
                 sh 'python app.py'
             }
         }
