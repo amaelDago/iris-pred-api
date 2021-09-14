@@ -10,7 +10,7 @@ pipeline {
             steps {
                 sh 'python3 -m venv venv'
                 sh '. venv/bin/activate'
-                sh 'sudo -H pip install -r api/requirements.txt '
+                sh 'pip install --user -r api/requirements.txt '
             }
         }
         stage('test') {
