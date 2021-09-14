@@ -6,7 +6,7 @@ pipeline {
             steps {
                 sh 'virtualvenv venv --distribute'
                 sh '. venv/bin/activate'
-                sh 'pip  install -r api/requirements.txt ' 
+                sh 'sudo pip  install -r api/requirements.txt ' 
             }
         }
         stage('test') {
