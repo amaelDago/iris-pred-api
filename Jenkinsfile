@@ -8,17 +8,12 @@ pipeline {
                 }
             }
             steps {
-                sh "./build.sh"
-            }
-        }
-        stage('test') {
-            steps {
+                
+                sh 'virtualenv venv --distribute'
+                sh '. venv/bin/activate'
+                sh 'sudo -H pip  install -r api/requirements.txt ' 
                 sh 'python tests/test.py'
-            }
-        }
-        stage('app') {
-            steps {
-                sh 'python api/app.py'
+                sh 'python app.py'
             }
         }
         
