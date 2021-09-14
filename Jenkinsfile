@@ -1,15 +1,10 @@
 pipeline {
     agent none 
     stages {
-        stage("Fix the permission issue") {
-            agent any
-            steps {
-                sh "sudo -S chown root:jenkins /run/docker.sock"
-            }
-        }
         stage('build') { 
             agent {
                 docker {
+                    args "--network host -u root:root"
                     image 'python:3.8.11' 
                 }
             }
