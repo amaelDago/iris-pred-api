@@ -1,8 +1,12 @@
 pipeline {
-    agent 
-        { docker { image 'python:3.8.11'} }
+    agent none
     stages {
         stage('build') { 
+            agent {
+                docker {
+                    image 'python:3.8.11' 
+                }
+            }
             steps {
                 sh 'virtualenv venv --distribute'
                 sh '. venv/bin/activate'
