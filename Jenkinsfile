@@ -1,11 +1,12 @@
 pipeline {
-    agent { docker { image 'python:3.8.11', args:'-u root:root' } }
+    agent none
+    { docker { image 'python:3.8.11', args:'-u root:root' } }
     stages {
         stage('build') { 
             steps {
                 sh 'virtualvenv venv --distribute'
                 sh '. venv/bin/activate'
-                sh 'pip --no-cache-dir  install --user -r api/requirements.txt ' 
+                sh 'pip  install -r api/requirements.txt ' 
             }
         }
         stage('test') {
